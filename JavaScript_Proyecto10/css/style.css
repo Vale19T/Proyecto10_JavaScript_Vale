@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+.logo{
+    max-width: 24rem;
+    margin-left: 4px;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: rgb(248, 137, 180);
+}
+.listaMenu{
+    /*Se eliminan los puntos de lista*/
+    list-style-type: none;
+    /*Acomoda las opciones del navegador horizontalmente*/
+    display: flex;
+    /*El gap sirve para separar*/
+    gap: 1rem;
+}
+.listaMenu li a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin-right: 12px;
+}
+.abrirMenu, .cerrarMenu{
+    /*Se exconde solamente en sitio web*/
+    display: none;
+}
+
+/*Resposive para formato web*/
+@media screen and (max-width: 600px){
+    .abrirMenu,
+    .cerrarMenu{
+        display: block;
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+    .cerrarMenu{
+        background-color: transparent;
+        color: white;
+    }
+    .abrirMenu{
+        background-color: transparent;
+        color: white;
+    }
+        .menuPrincipal{
+            opacity: 0;
+            /*Se debe esconder el menu*/
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            gap: 1.5rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(255, 11, 105);
+            padding: 2rem;
+            /*Los 100Vmax en una unida de medida de porcentaje relativa*/
+            box-shadow: 0 0 0 100vmax rgba(249, 228, 237, 0.712);
+        }
+        .menuPrincipal.visible{
+            opacity: 1;
+            visibility: visible;
+        }
+        .listaMenu{
+            /*Despliegue hacia abajo*/
+            flex-direction: column;
+            /*El "end se utiliza para alinear al final y a la derecha"*/
+            align-items: end;
+        }
+        .listaMenu li a{
+            color: white;
+        }
+}
